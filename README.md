@@ -30,21 +30,15 @@ Here are a few examples images of German traffic signs.
 [image1]: ./data/a.jpg "Ahead Only"
 [image2]: ./data/b.jpg "Yield"
 [image3]: ./data/c.jpg "30 km/h"
-[image4]: ./data/d.png "Stop"
-[image5]: ./data/e.png "General Caution"
-
-## Rubric Points
-###Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
+[image4]: ./data/d.jpg "Stop"
+[image5]: ./data/e.jpg "General Caution"
 
 ---
-###Source Code
+##Source Code
 
 Here is a link to my [jupyter project code](https://github.com/matthewsommer/Traffic-Sign-Classifier/blob/master/Traffic_Sign_Classifier.ipynb)
 
-###Data Set Summary & Exploration
-
-I used the pandas library to calculate summary statistics of the traffic
-signs data set:
+##Data Set Summary & Exploration
 
 * The size of training set is 34799
 * The size of the validation set is 4410
@@ -52,13 +46,13 @@ signs data set:
 * The shape of a traffic sign image is (32, 32, 3)
 * The number of unique classes/labels in the data set is 43
 
-####2. Include an exploratory visualization of the dataset.
+##Exploratory visualization of the dataset.
 
 Here is a chart of number of images per label in the training data. This illustrates that there are underrepresented labels. It would be best to add more data for these labels.
 
 ![Graph of images per label classification in Training data][./images/Classifications_Count.png]
 
-###Design and Test a Model Architecture
+##Design and Test a Model Architecture
 
 ####1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
@@ -71,7 +65,7 @@ To transform the images I'm using just two methods, scaling and rotation. I'm ab
 I did not transform any of the original data (other than normalization) as I thought it best to leave it as it was and only augument the data with transformed versions of the original data.
 
 
-####Neural Net Model Architecture
+##Neural Net Model Architecture
 
 My final model is the LeNet model with dropouts added.
 
@@ -144,8 +138,3 @@ For the first image, the model is relatively sure that this is a stop sign (prob
 
 
 For the second image ... 
-
-### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-####1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
-
-
