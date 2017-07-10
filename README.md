@@ -27,11 +27,7 @@ Here are a few examples images of German traffic signs.
 
 [//]: # (Image References)
 
-[image1]: /data/a.jpg "Ahead Only"
-[image2]: ./data/b.jpg "Yield"
-[image3]: ./data/c.jpg "30 km/h"
-[image4]: ./data/d.jpg "Stop"
-[image5]: ./data/e.jpg "General Caution"
+![image1](./data/a.jpg "Ahead Only")![image2](./data/b.jpg "Yield")![image3](./data/c.jpg "30 km/h")![image4](./data/d.jpg "Stop")![image5](./data/e.jpg "General Caution")
 
 ---
 ### Source Code
