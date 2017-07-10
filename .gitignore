@@ -1,2 +1,4 @@
-./data/
-data/
+.gitignore
+model/
+*_MACOSX
+.ipynb_checkpoints/
