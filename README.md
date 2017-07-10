@@ -27,18 +27,18 @@ Here are a few examples images of German traffic signs.
 
 [//]: # (Image References)
 
-[image1]: ./data/a.jpg "Ahead Only"
+[image1]: data/a.jpg "Ahead Only"
 [image2]: ./data/b.jpg "Yield"
 [image3]: ./data/c.jpg "30 km/h"
 [image4]: ./data/d.jpg "Stop"
 [image5]: ./data/e.jpg "General Caution"
 
 ---
-##Source Code
+### Source Code
 
 Here is a link to my [jupyter project code](https://github.com/matthewsommer/Traffic-Sign-Classifier/blob/master/Traffic_Sign_Classifier.ipynb)
 
-##Data Set Summary & Exploration
+### Data Set Summary & Exploration
 
 * The size of training set is 34799
 * The size of the validation set is 4410
@@ -46,7 +46,7 @@ Here is a link to my [jupyter project code](https://github.com/matthewsommer/Tra
 * The shape of a traffic sign image is (32, 32, 3)
 * The number of unique classes/labels in the data set is 43
 
-##Exploratory visualization of the dataset.
+### Exploratory visualization of the dataset.
 
 Here is a chart of number of images per label in the training data. This illustrates that there are underrepresented labels. It would be best to add more data for these labels.
 
