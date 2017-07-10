@@ -87,20 +87,13 @@ To train the model I used a batch size of 128, 20 epochs, and the AdamOptimizer.
 ### Training Results
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+* training set accuracy of 98.4%
+* validation set accuracy of 95.2%
+* test set accuracy of 93.1%
 
 I started with the LeNet architecture and added dropout. If I had more time I would switch to a more modern architecture but the LeNet works well for this project. When I started I realized that I would not get good results with the data that I had because some of the labels did not have enough data compared to others, so I decided to create some more data. I tried adjusting the learning rate up and down but found that 0.0001 worked well to get the accuracy up.
  
 ### Testing the Model on New Images
-
-Here are five German traffic signs that I found on the web:
-
-![alt text][./data/a.jpg] ![alt text][./data/b.jpg] ![alt text][./data/c.jpg] 
-![alt text][./data/d.jpg] ![alt text][./data/e.jpg]
-
-### Model Predictions of Images from Internet
 
 Here are the results of the prediction:
 
