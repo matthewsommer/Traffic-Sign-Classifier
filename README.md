@@ -48,9 +48,7 @@ Here is a chart of number of images per label in the training data. This illustr
 
 ![Graph of images per label classification in Training data](/images/Classifications_Count.png)
 
-##Design and Test a Model Architecture
-
-####1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
+### Design and Test a Model Architecture
 
 I've normalized all the image data to help the model converge and not overfit when training the data and making a prediction of the image. By normalizing the RGB values the data has close to zero mean and standard deviation.
 
@@ -60,8 +58,7 @@ To transform the images I'm using just two methods, scaling and rotation. I'm ab
 
 I did not transform any of the original data (other than normalization) as I thought it best to leave it as it was and only augument the data with transformed versions of the original data.
 
-
-##Neural Net Model Architecture
+### Neural Net Model Architecture
 
 My final model is the LeNet model with dropouts added.
 
@@ -83,11 +80,11 @@ My final model is the LeNet model with dropouts added.
  
 
 
-####3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+### Training Parameters
 
 To train the model I used a batch size of 128, 20 epochs, and the AdamOptimizer. My learning rate is 0.001.
 
-####4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+### Training Results
 
 My final model results were:
 * training set accuracy of ?
@@ -96,14 +93,14 @@ My final model results were:
 
 I started with the LeNet architecture and added dropout. If I had more time I would switch to a more modern architecture but the LeNet works well for this project. When I started I realized that I would not get good results with the data that I had because some of the labels did not have enough data compared to others, so I decided to create some more data. I tried adjusting the learning rate up and down but found that 0.0001 worked well to get the accuracy up.
  
-###Test a Model on New Images
+### Testing the Model on New Images
 
 Here are five German traffic signs that I found on the web:
 
 ![alt text][./data/a.jpg] ![alt text][./data/b.jpg] ![alt text][./data/c.jpg] 
 ![alt text][./data/d.jpg] ![alt text][./data/e.jpg]
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+### Model Predictions of Images from Internet
 
 Here are the results of the prediction:
 
@@ -116,21 +113,56 @@ Here are the results of the prediction:
 | General Caution		| General Caution      							|
 
 
-The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%. This is promising results but the data set is so small that isn't that meaningful.
+The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%. This is promising results but the data set is so small that isn't that meaningful. The speed limit sign was probably the hardest to determine given how similar it is to the other speed limit signs (as evidenced by softmax below).
 
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+## Softmax Predictions for each image
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
-
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For the first image, the model is very certain that the sign is Ahead only, which it is. The top five soft max probabilities are:
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+| 1.00         			| Ahead Only (35)								| 
+| .00     				| Turn Right Ahead (33)							|
+| .00					| Go Straight or Right (36)						|
+| .00	      			| Turn Left Ahead (34)			 				|
+| .00				    | Yield (13)                					|
 
+For the second image the model is predicting Yield which it is. The top five soft max probabilities are:
 
-For the second image ... 
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 1.00         			| Yield (13)   									| 
+| .00     				| Priority road (12)							|
+| .00					| No Vehicles (15)								|
+| .00	      			| Stop (14)     				 				|
+| .00				    | 20 km/h (0)        							|
+
+For the third image the model is predicting 30 km/h which it is. The top five soft max probabilities are:
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .99         			| 30 km/h (1)   								| 
+| .00     				| 50 km/h (2)   								|
+| .00					| 20 km/h (0)									|
+| .00	      			| 80 km/h (5)					 				|
+| .00				    | 70 km/h (4)      		    					|
+
+For the fourth image the model is predicting Stop which it is. The top five soft max probabilities are:
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .99         			| Stop (14)    									| 
+| .001     				| Bicycles Crossing (29)						|
+| .00					| No Entry (17)									|
+| .00	      			| Yield (13)	        		 				|
+| .00				    | Right-of-way at the next intersection (11) 	|
+
+For the fifth image the model is predicting General Caustion which it is. The top five soft max probabilities are:
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| .99         			| General Caustion (18) 						| 
+| .00     				| Pedestrians (27) 								|
+| .00					| Traffic Signals (26)							|
+| .00	      			| Right-of-way at the next intersection (11) 	|
+| .00				    | Road narrows on the right (24)				|
