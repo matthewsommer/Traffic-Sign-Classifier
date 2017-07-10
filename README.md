@@ -50,7 +50,7 @@ Here is a link to my [jupyter project code](https://github.com/matthewsommer/Tra
 
 Here is a chart of number of images per label in the training data. This illustrates that there are underrepresented labels. It would be best to add more data for these labels.
 
-![Graph of images per label classification in Training data][/images/Classifications_Count.png]
+![Graph of images per label classification in Training data](/images/Classifications_Count.png)
 
 ##Design and Test a Model Architecture
 
