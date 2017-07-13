@@ -80,7 +80,9 @@ My final model is the LeNet model with dropouts added.
  
 
 
-### Training Parameters
+### Method to Find Solution and Training Parameters
+
+When I began this project I started with the LeNet CNN architecture as it seemed to apply well to this problem since it worked well with the letter classification lab in the lecture and lab. Given that I'm new to Convolutional Neural Networks I didn't want to try an architecture that was too foriegn to me as I needed to learn the overall methods used predict what is shown in an image. Also the LeNet architecture is well documented and used so there are plenty of resources on the internet to help me get going. If I had more time I would switch to a more modern architecture but the LeNet works well for this project. Initially I had an accuracy around 87%. My first attempt at increasing the accuracy I added dropout but that didn't increase the accuracy (actually it made it worse but I realize now that I think I had a bug that caused this). Then I started trying to play with the parameters to increase the accuracy but that didn't help much. I realized that I would not get good results with the data that I had because some of the labels did not have enough data compared to others, so I decided to create some more data. The biggest increase in accuracy came when I added more augmented data. When I just duplicated the data without transforming it, the accuracy didn't go up (which makes sense because more of the same data doesn't really help train the network). I tried adjusting the learning rate up and down but found that 0.0001 worked well to get the accuracy up.
 
 To train the model I used a batch size of 128, 20 epochs, and the AdamOptimizer. My learning rate is 0.001.
 
@@ -90,8 +92,6 @@ My final model results were:
 * training set accuracy of 98.4%
 * validation set accuracy of 95.2%
 * test set accuracy of 93.1%
-
-I started with the LeNet architecture and added dropout. If I had more time I would switch to a more modern architecture but the LeNet works well for this project. When I started I realized that I would not get good results with the data that I had because some of the labels did not have enough data compared to others, so I decided to create some more data. I tried adjusting the learning rate up and down but found that 0.0001 worked well to get the accuracy up.
  
 ### Testing the Model on New Images
 
@@ -110,7 +110,7 @@ The model was able to correctly guess 5 of the 5 traffic signs, which gives an a
 
 ## Softmax Predictions for each image
 
-For the first image, the model is very certain that the sign is Ahead only, which it is. The top five soft max probabilities are:
+For the first image, the model is very certain that the sign is Ahead only, which it is. The ahead only sign might be hard to classify because there are other similar signs for left and right turns as well as go straight or left/right. The sign should be easy to classify thoug as the arrows are very distinctly different from each other. The top five soft max probabilities are:
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -120,7 +120,7 @@ For the first image, the model is very certain that the sign is Ahead only, whic
 | .00	      			| Turn Left Ahead (34)			 				|
 | .00				    | Yield (13)                					|
 
-For the second image the model is predicting Yield which it is. The top five soft max probabilities are:
+For the second image the model is predicting Yield which it is. This sign might be hard to classify as it's very similar to General Caution and a couple other signs with a triangle and similar coloring. I think it won't be hard for the classifier though because the center is a solid color with no graphic. The top five soft max probabilities are:
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -130,7 +130,7 @@ For the second image the model is predicting Yield which it is. The top five sof
 | .00	      			| Stop (14)     				 				|
 | .00				    | 20 km/h (0)        							|
 
-For the third image the model is predicting 30 km/h which it is. The top five soft max probabilities are:
+For the third image the model is predicting 30 km/h which it is. This sign might be difficult to classify because it's one of the speed limit signs so the classifier will have to identify which speed is being shown. The evidence of this is shown in the softmax probablities because the other potential classifications are the other speed limit signs. The top five soft max probabilities are:
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -140,7 +140,7 @@ For the third image the model is predicting 30 km/h which it is. The top five so
 | .00	      			| 80 km/h (5)					 				|
 | .00				    | 70 km/h (4)      		    					|
 
-For the fourth image the model is predicting Stop which it is. The top five soft max probabilities are:
+For the fourth image the model is predicting Stop which it is. The Stop sign should be the easiest to classify. I'm not sure why one of the probablities is Bicycyles crossing but I can understand No Entry as it's a solid red color. Though the probablities are basically zero so the model is confidently predicting the stop sign. The top five soft max probabilities are:
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
@@ -150,7 +150,7 @@ For the fourth image the model is predicting Stop which it is. The top five soft
 | .00	      			| Yield (13)	        		 				|
 | .00				    | Right-of-way at the next intersection (11) 	|
 
-For the fifth image the model is predicting General Caustion which it is. The top five soft max probabilities are:
+For the fifth image the model is predicting General Caustion which it is. I thought this sign might be the hardest to classify as there are other triangle shaped signs with similar coloring and a graphic in the center, but the network didn't have much trouble classifying the image as it's very clear. The top five soft max probabilities are:
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
